@@ -1,7 +1,7 @@
 <?php 
 $is_subpage = true;
 include('../includes/header.php'); 
-require_auth('login.php');
+require_auth('../pages/login.php');
 include('../includes/connect.php');
 
 
@@ -122,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_payment'])) {
     }
 }
 ?>
-<?php include('../includes/navbar.php'); ?>
+<?php include('include/navbar.php'); ?>
 
 <section class="section-padding bg-light" style="min-height: 100vh;">
     <div class="container">
@@ -139,7 +139,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_payment'])) {
                             <div class="small fw-bold">Current Status:</div>
                             <div class="text-uppercase fw-bold text-warning" style="letter-spacing: 1px;">Pending Verification</div>
                         </div>
-                        <a href="../App/dashboard.php" class="btn btn-primary px-5 rounded-pill py-3 fw-bold">Go to Dashboard</a>
+                        <a href="dashboard.php" class="btn btn-primary px-5 rounded-pill py-3 fw-bold">Go to Dashboard</a>
                     </div>
                 </div>
             </div>
@@ -326,4 +326,4 @@ document.getElementById('fileInput').onchange = function (event) {
 .x-small-text { font-size: 0.75rem; }
 </style>
 
-<?php include('../includes/footer.php'); ?>
+<?php include('include/footer.php'); ?>

@@ -46,6 +46,22 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: var(--shadow-premium);
 }
 
+.navbar-toggler {
+    border: none !important;
+    padding: 0 !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.navbar-toggler-icon {
+    width: 24px;
+    height: 24px;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%230B2C4D' stroke-width='2.5' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+
 .nav-link {
     font-weight: 500;
     color: var(--primary-color) !important;
@@ -71,6 +87,55 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-link:hover::after, .nav-link.active::after {
     width: 100%;
+}
+
+/* Custom Header Responsive Adjustments */
+@media (min-width: 992px) {
+    .brand-text {
+        font-size: 1.5rem !important;
+    }
+    .navbar-brand img {
+        height: 50px !important;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background: rgba(11, 44, 77, 0.98); /* Deep luxury blue */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        padding: 20px !important;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        border-radius: 0 0 20px 20px;
+        z-index: 9999;
+        transition: var(--transition-smooth);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .navbar-collapse .nav-link {
+        color: rgba(255, 255, 255, 0.85) !important;
+        margin: 8px 0;
+        padding: 10px 15px !important;
+        text-align: center;
+        width: 100%;
+        font-size: 1rem;
+    }
+    
+    .navbar-collapse .nav-link::after {
+        display: none; /* Hide standard underline on mobile */
+    }
+    
+    .navbar-collapse .nav-link:hover, 
+    .navbar-collapse .nav-link.active {
+        color: var(--secondary-color) !important;
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+    }
 }
 
 /* Buttons */
@@ -162,7 +227,7 @@ h1, h2, h3, h4, h5, h6 {
 .plan-card .plan-header {
     padding: 30px 20px;
     border-radius: 30px 30px 0 0;
-    background: #f8f9fa;
+    background: #fff;
     margin-bottom: 20px;
 }
 
@@ -216,8 +281,14 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
+@media (max-width: 767.98px) {
+    .section-title {
+        margin-bottom: 25px !important;
+    }
+}
+
 .section-title h2 {
-    font-size: 2.5rem;
+    
     margin-bottom: 20px;
 }
 
@@ -280,7 +351,7 @@ footer a:hover {
 @media (max-width: 991.98px) {
     .hero-section {
         height: auto;
-        padding: 150px 0 100px;
+        
     }
     .display-3 {
         font-size: 2.5rem;
@@ -293,10 +364,7 @@ footer a:hover {
 }
 
 /* Fix horizontal scroll */
-.row {
-    margin-right: 0;
-    margin-left: 0;
-}
+/* Custom Row Margins override removed to restore standard Bootstrap gutters and full-width card responsiveness */
 
 .container, .container-fluid {
     padding-right: 15px;
@@ -341,7 +409,7 @@ footer a:hover {
         margin-bottom: 30px;
     }
     .premium-card {
-        padding: 20px !important;
+     
         margin-bottom: 20px;
     }
     .dashboard-nav .nav-link {
@@ -353,6 +421,12 @@ footer a:hover {
    GLOBAL MOBILE RESPONSIVE FIXES
    ======================================== */
 @media (max-width: 767.98px) {
+
+    /* Maximize screen width for mobile cards */
+    .container, .container-fluid {
+        padding-right: 13px !important;
+        padding-left: 13px !important;
+    }
 
     /* Prevent all badges from wrapping */
     .badge {
@@ -452,3 +526,69 @@ footer a:hover {
         width: 22px;
     }
 }
+
+/* Responsive Feature Row Elements */
+.feature-icon {
+    font-size: 1.0rem;
+    transition: var(--transition-smooth);
+}
+
+.feature-title {
+    font-size: 0.72rem !important; /* Extremely neat on 320px screens */
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+@media (min-width: 375px) {
+    .feature-title {
+        font-size: 0.8rem !important; /* Elegant on standard 375px screens */
+    }
+    .feature-icon {
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 576px) {
+    .feature-icon {
+        font-size: 1.5rem;
+    }
+    .feature-title {
+        font-size: 1rem !important;
+    }
+}
+
+/* Destination card cover image fix */
+.destination-card {
+    padding: 0 !important;
+}
+
+/* Premium Collage Image Styles */
+.collage-img {
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06) !important;
+}
+
+.collage-img:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12) !important;
+}
+
+.collage-img-lg {
+    height: 280px;
+}
+
+.collage-img-sm {
+    height: 200px;
+}
+
+@media (max-width: 767.98px) {
+    .collage-img-lg {
+        height: 120px;
+    }
+    .collage-img-sm {
+        height: 120px;
+    }
+}
+

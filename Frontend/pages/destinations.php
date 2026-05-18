@@ -41,7 +41,7 @@ include('../includes/header.php');
                         <hr class="opacity-10">
                         <div class="d-flex justify-content-between align-items-center">
                             <span class="text-secondary fw-bold small"><i class="fas fa-star me-1"></i> 4.9/5 Rating</span>
-                            <a href="contact.php" class="btn btn-outline-primary btn-sm rounded-pill px-3">Enquire Now</a>
+                            
                         </div>
                     </div>
                 </div>

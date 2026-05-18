@@ -1,10 +1,8 @@
 <?php 
 $is_subpage = true;
 include('../includes/header.php'); 
-require_auth('login.php');
+require_auth('../pages/login.php');
 include('../includes/connect.php');
-
-
 
 $user_id = $_SESSION['user_id'];
 $message = '';
@@ -83,18 +81,81 @@ $stmt_pay->execute();
 $pending_payment = $stmt_pay->get_result()->fetch_assoc();
 $stmt_pay->close();
 ?>
-<?php include('../includes/navbar.php'); ?>
+<?php include('include/navbar.php'); ?>
 
 <section class="section-padding bg-light" style="min-height: 100vh;">
+    <style>
+    .app-grid-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        margin-bottom: 35px;
+    }
+    @media (max-width: 576px) {
+        .app-grid-container {
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+    }
+    .app-menu-card {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 20px 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+        border: 1px solid rgba(0,0,0,0.01);
+    }
+    .app-menu-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(201, 162, 39, 0.12);
+        border-color: rgba(201, 162, 39, 0.2);
+    }
+    .app-icon-wrapper {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+        font-size: 1.4rem;
+        transition: all 0.3s ease;
+    }
+    .app-menu-label {
+        font-size: 0.82rem;
+        font-weight: 650;
+        color: #2d3748;
+        text-align: center;
+        margin-top: 4px;
+        line-height: 1.2;
+    }
+    @media (max-width: 576px) {
+        .app-icon-wrapper {
+            width: 45px;
+            height: 45px;
+            font-size: 1.15rem;
+            margin-bottom: 6px;
+        }
+        .app-menu-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        .app-menu-card {
+            padding: 12px 4px;
+            border-radius: 15px;
+        }
+    }
+    </style>
+    
     <div class="container">
-        <div class="row g-4">
-            <!-- Sidebar -->
-            <div class="col-lg-3">
-                <?php include('../includes/dashboard_sidebar.php'); ?>
-            </div>
-
-            <!-- Main Content -->
-            <div class="col-lg-9">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-xl-9">
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <div>
                         <h2 class="fw-bold mb-1">Dashboard Overview</h2>
@@ -115,6 +176,9 @@ $stmt_pay->close();
                         </div>
                     </div>
                 </div>
+
+                <!-- App-Style Quick Navigation Grid (2x4 Circular Layout) -->
+                
 
                 <?php echo $message; ?>
 
@@ -142,7 +206,7 @@ $stmt_pay->close();
                             </div>
                             <h4 class="fw-bold">Activation Required</h4>
                             <p class="text-muted mb-4">Please choose a plan to activate your account and start earning.</p>
-                            <a href="plans.php" class="btn btn-gold px-5 rounded-pill py-3 fw-bold">Choose Investment Plan</a>
+                            <a href="../pages/plans.php" class="btn btn-gold px-5 rounded-pill py-3 fw-bold">Choose Investment Plan</a>
                         <?php endif; ?>
                     </div>
                 <?php endif; ?>
@@ -202,7 +266,6 @@ $stmt_pay->close();
                 </div>
 
                 <!-- KYC Status Bar -->
-                <!-- KYC Status Bar -->
                 <div class="premium-card p-4 bg-white border-0 shadow-sm mb-4">
                     <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
                         <div class="d-flex align-items-center">
@@ -252,11 +315,10 @@ $stmt_pay->close();
                         </div>
                     </div>
                 </div>
-
-                
             </div>
         </div>
     </div>
 </section>
+<?php include('include/footer.php'); ?>
 
-<?php include('../includes/footer.php'); ?>
+

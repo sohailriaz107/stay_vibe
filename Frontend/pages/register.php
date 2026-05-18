@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['user_id']     = $new_user_id;
                 $_SESSION['user_name']   = $full_name;
                 $_SESSION['user_status'] = 'inactive';
-                header("Location: dashboard.php");
+                header("Location: ../App/dashboard.php");
                 exit();
             } else {
                 $message = '<div class="alert alert-danger">Error: Could not create account. Please try again.</div>';
@@ -66,14 +66,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-<?php include('../includes/navbar.php'); ?>
 
 <section class="section-padding bg-light" style="min-height: 100vh; display: flex; align-items: center;">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="premium-card p-5 bg-white shadow-lg border-0" style="border-radius: 30px;">
-                    <div class="text-center mb-5">
+            <div class="col-lg-8 px-2 px-sm-3">
+                <div class="premium-card p-3 p-sm-5 bg-white shadow-lg border-0" style="border-radius: 30px;">
+                    <div class="text-center mb-4">
+                        <a href="../index.php">
+                            <img src="../assets/imgs/logo.png" alt="Stay Vibes Logo" class="mb-3" style="max-height: 70px; object-fit: contain;">
+                        </a>
                         <h2 class="fw-bold">Create Investor Account</h2>
                         <p class="text-muted">Join Stay Vibes Resort and start your investment journey.</p>
                     </div>
@@ -83,41 +85,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
                         <input type="hidden" name="csrf_token" value="<?php echo generate_csrf_token(); ?>">
                         
-                        <div class="row g-3">
+                        <div class="row gx-2 gy-3">
                             <div class="col-md-6">
                                 <label class="form-label small fw-bold">Full Name</label>
-                                <input type="text" name="full_name" class="form-control form-control-lg bg-light border-0" placeholder="Enter your full name" required>
+                                <input type="text" name="full_name" class="form-control bg-light border-0 py-2.5 px-3 rounded-3" placeholder="Enter your full name" required style="font-size: 0.95rem;">
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label small fw-bold">Mobile Number</label>
-                                <input type="tel" name="mobile" class="form-control form-control-lg bg-light border-0" placeholder="10-digit mobile number" required>
+                                <input type="tel" name="mobile" class="form-control bg-light border-0 py-2.5 px-3 rounded-3" placeholder="10-digit mobile number" required style="font-size: 0.95rem;">
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label small fw-bold">Father's Name</label>
-                                <input type="text" name="father_name" class="form-control form-control-lg bg-light border-0" placeholder="Father's name" required>
+                                <input type="text" name="father_name" class="form-control bg-light border-0 py-2.5 px-3 rounded-3" placeholder="Father's name" required style="font-size: 0.95rem;">
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label small fw-bold">Date of Birth</label>
-                                <input type="date" name="dob" class="form-control form-control-lg bg-light border-0" required>
+                                <input type="date" name="dob" class="form-control bg-light border-0 py-2.5 px-3 rounded-3" required style="font-size: 0.95rem;">
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label small fw-bold">Email Address</label>
-                                <input type="email" name="email" class="form-control form-control-lg bg-light border-0" placeholder="email@example.com" required>
+                                <input type="email" name="email" class="form-control bg-light border-0 py-2.5 px-3 rounded-3" placeholder="email@example.com" required style="font-size: 0.95rem;">
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label small fw-bold">Pincode</label>
-                                <input type="text" name="pincode" class="form-control form-control-lg bg-light border-0" placeholder="6-digit pincode" required>
+                                <input type="text" name="pincode" class="form-control bg-light border-0 py-2.5 px-3 rounded-3" placeholder="6-digit pincode" required style="font-size: 0.95rem;">
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label small fw-bold">Reference ID (Optional)</label>
-                                <input type="text" name="reference_id" class="form-control form-control-lg bg-light border-0" placeholder="Referrer ID" value="<?php echo isset($_GET['ref']) ? htmlspecialchars($_GET['ref']) : ''; ?>">
+                                <input type="text" name="reference_id" class="form-control bg-light border-0 py-2.5 px-3 rounded-3" placeholder="Referrer ID" value="<?php echo isset($_GET['ref']) ? htmlspecialchars($_GET['ref']) : ''; ?>" style="font-size: 0.95rem;">
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label small fw-bold">Create Password</label>
-                                <input type="password" name="password" class="form-control form-control-lg bg-light border-0" placeholder="Min 8 characters" required>
+                                <input type="password" name="password" class="form-control bg-light border-0 py-2.5 px-3 rounded-3" placeholder="Min 8 characters" required style="font-size: 0.95rem;">
                             </div>
                             <div class="col-12 mt-4">
-                                <button type="submit" class="btn btn-gold btn-lg w-100 py-3 fw-bold">Create My Account</button>
+                                <button type="submit" class="btn btn-gold w-100 py-2.5 fw-bold text-uppercase" style="border-radius: 12px; font-size: 0.95rem; letter-spacing: 0.5px;">Create My Account</button>
                             </div>
                             <div class="col-12 text-center mt-3">
                                 <p class="text-muted small">Already have an account? <a href="login.php" class="text-primary fw-bold">Login here</a></p>
@@ -129,5 +131,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 </section>
-
-<?php include('../includes/footer.php'); ?>

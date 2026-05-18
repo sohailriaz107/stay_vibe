@@ -23,22 +23,22 @@
 <section class="section-padding bg-light">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-6 mb-5 mb-lg-0">
+            <div class="col-lg-6  mb-lg-0">
                 <div class="pe-lg-5">
-                    <span class="text-secondary text-uppercase fw-bold mb-2 d-block">Who We Are</span>
+                    <span class="text-secondary text-uppercase fw-bold mb-2 d-block text-center">Who We Are</span>
                     <h2 class="mb-4">Crafting Exceptional <br>Resort Experiences</h2>
-                    <p class="text-muted mb-4">At Stay Vibes Resort, we combine the elegance of premium hospitality with the innovation of a modern fintech investment platform. Our vision is to democratize resort ownership, allowing investors to benefit from the booming luxury tourism industry.</p>
-                    <div class="row g-4 mt-2">
-                        <div class="col-sm-6">
+                    <p class="text-muted">At Stay Vibes Resort, we combine the elegance of premium hospitality with the innovation of a modern fintech investment platform. Our vision is to democratize resort ownership, allowing investors to benefit from the booming luxury tourism industry.</p>
+                    <div class="row g-2 mt-2">
+                        <div class="col-6">
                             <div class="d-flex align-items-center mb-3">
-                                <div class="icon-box me-3" style="color: var(--secondary-color); font-size: 1.5rem;"><i class="fas fa-check-circle"></i></div>
-                                <h6 class="mb-0">Secure Investment</h6>
+                                <div class="feature-icon me-2 me-sm-3" style="color: var(--secondary-color);"><i class="fas fa-check-circle"></i></div>
+                                <h6 class="mb-0 feature-title">Secure Investment</h6>
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-6">
                             <div class="d-flex align-items-center mb-3">
-                                <div class="icon-box me-3" style="color: var(--secondary-color); font-size: 1.5rem;"><i class="fas fa-check-circle"></i></div>
-                                <h6 class="mb-0">High ROI</h6>
+                                <div class="feature-icon me-2 me-sm-3" style="color: var(--secondary-color);"><i class="fas fa-check-circle"></i></div>
+                                <h6 class="mb-0 feature-title">High Rental Income</h6>
                             </div>
                         </div>
                     </div>
@@ -58,8 +58,8 @@
             <span>Process</span>
             <h2>Simple Steps to Start</h2>
         </div>
-        <div class="row g-4 mt-2">
-            <div class="col-md-2 col-sm-6 mb-4">
+        <div class="row g-3 g-md-4 mt-2">
+            <div class="col-6 col-md-2 mb-3 mb-md-4">
                 <div class="step-card">
                     <div class="step-icon mb-3 mx-auto d-flex align-items-center justify-content-center" style="width: 70px; height: 70px; background: var(--bg-light); border-radius: 50%; color: var(--secondary-color); font-size: 1.8rem;">
                         <i class="fas fa-user-plus"></i>
@@ -68,7 +68,7 @@
                     <p class="small text-muted">Register</p>
                 </div>
             </div>
-            <div class="col-md-2 col-sm-6 mb-4">
+            <div class="col-6 col-md-2 mb-3 mb-md-4">
                 <div class="step-card">
                     <div class="step-icon mb-3 mx-auto d-flex align-items-center justify-content-center" style="width: 70px; height: 70px; background: var(--bg-light); border-radius: 50%; color: var(--secondary-color); font-size: 1.8rem;">
                         <i class="fas fa-search-dollar"></i>
@@ -77,7 +77,7 @@
                     <p class="small text-muted">Choose Plan</p>
                 </div>
             </div>
-            <div class="col-md-2 col-sm-6 mb-4">
+            <div class="col-6 col-md-2 mb-3 mb-md-4">
                 <div class="step-card">
                     <div class="step-icon mb-3 mx-auto d-flex align-items-center justify-content-center" style="width: 70px; height: 70px; background: var(--bg-light); border-radius: 50%; color: var(--secondary-color); font-size: 1.8rem;">
                         <i class="fas fa-receipt"></i>
@@ -86,7 +86,7 @@
                     <p class="small text-muted">Submit Proof</p>
                 </div>
             </div>
-            <div class="col-md-2 col-sm-6 mb-4">
+            <div class="col-6 col-md-2 mb-3 mb-md-4">
                 <div class="step-card">
                     <div class="step-icon mb-3 mx-auto d-flex align-items-center justify-content-center" style="width: 70px; height: 70px; background: var(--bg-light); border-radius: 50%; color: var(--secondary-color); font-size: 1.8rem;">
                         <i class="fas fa-user-check"></i>
@@ -95,12 +95,12 @@
                     <p class="small text-muted">Verification</p>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-12 mb-4">
+            <div class="col-12 col-md-4 mb-3 mb-md-4">
                 <div class="step-card" style="background: var(--primary-color); color: white; padding: 25px; border-radius: 20px;">
                     <div class="step-icon mb-3 mx-auto d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; background: rgba(255,255,255,0.1); border-radius: 50%; color: var(--secondary-color); font-size: 1.5rem;">
                         <i class="fas fa-hand-holding-usd"></i>
                     </div>
-                    <h6 class="mb-1">Step 5</h6>
+                    <h6 class="mb-1" style="color:white">Step 5</h6>
                     <p class="small text-white-50 mb-0">Earn Monthly Income</p>
                 </div>
             </div>
@@ -117,8 +117,8 @@
         </div>
         <div class="row g-4 py-4 justify-content-center">
             <!-- Plan A -->
-            <div class="col-lg-4 col-md-6">
-                <div class="premium-card plan-card text-center h-100 overflow-hidden">
+            <div class="col-lg-4 col-md-6 px-2 px-sm-3">
+                <div class="premium-card plan-card text-center h-100 overflow-hidden shadow-sm">
                     <div class="plan-header">
                         <h4 class="fw-bold mb-2">Plan A</h4>
                         <div class="display-6 fw-bold" style="color: var(--primary-color);">₹20,999</div>
@@ -135,7 +135,7 @@
                 </div>
             </div>
             <!-- Plan C (Featured) -->
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6 px-2 px-sm-3">
                 <div class="premium-card plan-card plan-card-featured text-center h-100 overflow-hidden shadow-lg">
                     <div class="plan-header">
                         <div class="badge bg-secondary mb-3 rounded-pill px-3">MOST POPULAR</div>
@@ -154,8 +154,8 @@
                 </div>
             </div>
             <!-- Plan E -->
-            <div class="col-lg-4 col-md-6">
-                <div class="premium-card plan-card text-center h-100 overflow-hidden">
+            <div class="col-lg-4 col-md-6 px-2 px-sm-3">
+                <div class="premium-card plan-card text-center h-100 overflow-hidden shadow-sm">
                     <div class="plan-header">
                         <h4 class="fw-bold mb-2">Plan E</h4>
                         <div class="display-6 fw-bold" style="color: var(--primary-color);">₹12,49,999</div>
@@ -194,7 +194,7 @@
             ];
             foreach ($destinations as $dest) {
             ?>
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6 ">
                 <div class="premium-card destination-card position-relative overflow-hidden" style="height: 400px; border-radius: 20px;">
                     <img src="<?php echo $dest['img']; ?>" alt="<?php echo $dest['name']; ?>" class="w-100 h-100 object-fit-cover transition-all" style="transition: transform 0.5s;">
                     <div class="overlay position-absolute bottom-0 start-0 w-100 p-4" style="background: linear-gradient(transparent, rgba(0,0,0,0.8));">
@@ -205,8 +205,8 @@
             </div>
             <?php } ?>
         </div>
-        <div class="text-center mt-5">
-            <a href="pages/destinations.php" class="btn btn-gold btn-lg rounded-pill px-5">Check All Destinations</a>
+        <div class="text-center">
+            <a href="pages/destinations.php" class="btn btn-gold btn-lg rounded-pill">Check All Destinations</a>
         </div>
     </div>
 </section>
@@ -218,44 +218,44 @@
             <span>Benefits</span>
             <h2>Why Choose Stay Vibes</h2>
         </div>
-        <div class="row g-4">
+        <div class="row g-2">
             <div class="col-lg-4 col-md-6">
-                <div class="premium-card p-4 h-100">
+                <div class="premium-card p-4 h-100 text-center">
                     <div class="mb-3 text-secondary" style="font-size: 2.5rem;"><i class="fas fa-shield-alt"></i></div>
                     <h4>Secure Investment</h4>
                     <p class="text-muted">Fully transparent and legally backed investment structures for your peace of mind.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
-                <div class="premium-card p-4 h-100">
+                <div class="premium-card p-4 h-100 text-center">
                     <div class="mb-3 text-secondary" style="font-size: 2.5rem;"><i class="fas fa-hotel"></i></div>
                     <h4>Resort Development</h4>
                     <p class="text-muted">Own a part of high-growth resort projects in prime tourism locations.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
-                <div class="premium-card p-4 h-100">
+                <div class="premium-card p-4 h-100 text-center">
                     <div class="mb-3 text-secondary" style="font-size: 2.5rem;"><i class="fas fa-crown"></i></div>
                     <h4>Premium Membership</h4>
                     <p class="text-muted">Exclusive access to all our resorts worldwide with VIP benefits.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
-                <div class="premium-card p-4 h-100">
+                <div class="premium-card p-4 h-100 text-center">
                     <div class="mb-3 text-secondary" style="font-size: 2.5rem;"><i class="fas fa-chart-line"></i></div>
                     <h4>Monthly Rental Income</h4>
                     <p class="text-muted">Passive income generated from resort operations directly to your account.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
-                <div class="premium-card p-4 h-100">
+                <div class="premium-card p-4 h-100 text-center">
                     <div class="mb-3 text-secondary" style="font-size: 2.5rem;"><i class="fas fa-users"></i></div>
                     <h4>Referral Rewards</h4>
                     <p class="text-muted">Earn significant bonuses by inviting partners to join the Stay Vibes family.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
-                <div class="premium-card p-4 h-100">
+                <div class="premium-card p-4 h-100 text-center">
                     <div class="mb-3 text-secondary" style="font-size: 2.5rem;"><i class="fas fa-map-marked-alt"></i></div>
                     <h4>Luxury Destinations</h4>
                     <p class="text-muted">Strategically chosen locations that guarantee high demand and appreciation.</p>
@@ -269,7 +269,7 @@
 <section class="section-padding">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-6 mb-5 mb-lg-0">
+            <div class="col-lg-6 mb-5 mb-lg-0 text-center text-lg-start">
                 <span class="text-secondary text-uppercase fw-bold mb-2 d-block">Questions?</span>
                 <h2 class="mb-4">Frequently Asked <br>Questions</h2>
                 <p class="text-muted mb-4">Find quick answers to common questions about our investment plans and resort operations.</p>

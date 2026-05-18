@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['user_name'] = $user['full_name'];
                 $_SESSION['user_status'] = $user['status'];
                 
-                header("Location: dashboard.php");
+                header("Location: ../App/index.php");
                 exit();
             } else {
                 $message = '<div class="alert alert-danger">Invalid password.</div>';
@@ -40,14 +40,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-<?php include('../includes/navbar.php'); ?>
 
 <section class="section-padding bg-light" style="min-height: 100vh; display: flex; align-items: center;">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-5">
-                <div class="premium-card p-5 bg-white shadow-lg border-0" style="border-radius: 30px;">
-                    <div class="text-center mb-5">
+            <div class="col-lg-5 px-2 px-sm-3">
+                <div class="premium-card p-3 p-sm-5 bg-white shadow-lg border-0" style="border-radius: 30px;">
+                    <div class="text-center mb-4">
+                        <a href="../index.php">
+                            <img src="../assets/imgs/logo.png" alt="Stay Vibes Logo" class="mb-3" style="max-height: 70px; object-fit: contain;">
+                        </a>
                         <h2 class="fw-bold">Investor Login</h2>
                         <p class="text-muted">Welcome back to Stay Vibes Resort.</p>
                     </div>
@@ -59,20 +61,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         
                         <div class="mb-4">
                             <label class="form-label small fw-bold">Email Address</label>
-                            <input type="email" name="email" class="form-control form-control-lg bg-light border-0" placeholder="Enter your email" required>
+                            <input type="email" name="email" class="form-control bg-light border-0 py-2.5 px-3 rounded-3" placeholder="Enter your email" required style="font-size: 0.95rem;">
                         </div>
                         <div class="mb-4">
                             <label class="form-label small fw-bold">Password</label>
-                            <input type="password" name="password" class="form-control form-control-lg bg-light border-0" placeholder="Enter your password" required>
+                            <input type="password" name="password" class="form-control bg-light border-0 py-2.5 px-3 rounded-3" placeholder="Enter your password" required style="font-size: 0.95rem;">
                         </div>
-                        <div class="mb-4 d-flex justify-content-between align-items-center">
+                        <div class="mb-4 d-flex flex-column flex-sm-row justify-content-sm-between align-items-start align-items-sm-center gap-2 gap-sm-0">
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="rememberMe">
                                 <label class="form-check-label small" for="rememberMe">Remember Me</label>
                             </div>
-                            <a href="#" class="small text-primary fw-bold">Forgot Password?</a>
+                            <a href="#" class="small text-primary fw-bold text-decoration-none">Forgot Password?</a>
                         </div>
-                        <button type="submit" class="btn btn-gold btn-lg w-100 py-3 fw-bold">Login to Account</button>
+                        <button type="submit" class="btn btn-gold w-100 py-2.5 fw-bold text-uppercase" style="border-radius: 12px; font-size: 0.95rem; letter-spacing: 0.5px;">Login to Account</button>
                         
                         <div class="text-center mt-4">
                             <p class="text-muted small">Don't have an account? <a href="register.php" class="text-primary fw-bold">Create one now</a></p>
@@ -84,4 +86,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </section>
 
-<?php include('../includes/footer.php'); ?>
+

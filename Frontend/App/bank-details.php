@@ -1,10 +1,8 @@
 <?php 
 $is_subpage = true;
 include('../includes/header.php'); 
-require_auth('login.php');
+require_auth('../pages/login.php');
 include('../includes/connect.php');
-
-
 
 $user_id = $_SESSION['user_id'];
 $message = '';
@@ -51,27 +49,21 @@ $stmt->execute();
 $user = $stmt->get_result()->fetch_assoc();
 $stmt->close();
 ?>
-<?php include('../includes/navbar.php'); ?>
+<?php include('include/navbar.php'); ?>
 
 <section class="section-padding bg-light" style="min-height: 100vh;">
     <div class="container">
-        <div class="row g-4">
-            <!-- Sidebar -->
-            <div class="col-lg-3">
-                <?php include('../includes/dashboard_sidebar.php'); ?>
-            </div>
-
-            <!-- Main Content -->
-            <div class="col-lg-9">
-                <div class="dashboard-header mb-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-xl-9">
+                <div class="dashboard-header mb-4 text-center">
                     <h2 class="fw-bold mb-1">Bank & KYC Details</h2>
                     <p class="text-muted small mb-0">Update your banking information for withdrawals.</p>
                 </div>
 
                 <?php echo $message; ?>
 
-                <div class="premium-card p-4 bg-white border-0 shadow-sm mb-4">
-                    <div class="text-center text-md-start mb-4">
+                <div class="premium-card p-3 px-2 px-sm-4 py-sm-4 bg-white border-0 shadow-sm mb-4" style="border-radius: 20px;">
+                    <div class="text-center mb-4">
                         <h5 class="fw-bold mb-2"><i class="fas fa-university me-2 text-primary"></i> Banking Information</h5>
                         <span class="badge <?php echo (($user['kyc_status'] ?? 'pending') == 'accepted') ? 'bg-success' : 'bg-warning text-dark'; ?> p-2 px-3 text-nowrap">
                             KYC Status: <?php echo strtoupper($user['kyc_status'] ?? 'PENDING'); ?>
@@ -119,5 +111,6 @@ $stmt->close();
         </div>
     </div>
 </section>
+<?php include('include/footer.php'); ?>
 
-<?php include('../includes/footer.php'); ?>
+
