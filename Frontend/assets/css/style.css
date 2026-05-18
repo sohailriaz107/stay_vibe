@@ -1,0 +1,454 @@
+/* 
+ * Stay Vibes Resort - Custom Luxury Theme
+ * Author: Antigravity AI
+ */
+
+:root {
+    --primary-color: #0B2C4D;    /* Deep Luxury Blue */
+    --secondary-color: #C9A227;  /* Gold */
+    --accent-color: #E6C156;     /* Lighter Gold */
+    --bg-white: #FFFFFF;
+    --bg-light: #F8F9FA;
+    --text-dark: #212529;
+    --text-muted: #6C757D;
+    --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    --shadow-premium: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+html, body {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--bg-white);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* Navbar Customization */
+.navbar {
+    transition: var(--transition-smooth);
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.navbar.sticky {
+    padding: 0.8rem 0;
+    box-shadow: var(--shadow-premium);
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--primary-color) !important;
+    margin: 0 15px;
+    position: relative;
+    transition: var(--transition-smooth);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--secondary-color);
+    transition: var(--transition-smooth);
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--secondary-color) !important;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
+
+/* Buttons */
+.btn-gold {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    border: 2px solid var(--secondary-color);
+    transition: var(--transition-smooth);
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.btn-gold:hover {
+    background-color: transparent;
+    color: var(--secondary-color);
+}
+
+.btn-outline-gold {
+    background-color: transparent;
+    color: var(--secondary-color);
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    border: 2px solid var(--secondary-color);
+    transition: var(--transition-smooth);
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.btn-outline-gold:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 80vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(11, 44, 77, 0.7), rgba(11, 44, 77, 0.3));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+}
+
+/* Cards */
+.premium-card {
+    border: none;
+    border-radius: 20px;
+    box-shadow: var(--shadow-premium);
+    transition: var(--transition-smooth);
+    overflow: hidden;
+    background: white;
+    margin-bottom: 0;
+}
+
+.premium-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Plan Specific Cards */
+.plan-card {
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 30px;
+    background: #fff;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.plan-card .plan-header {
+    padding: 30px 20px;
+    border-radius: 30px 30px 0 0;
+    background: #f8f9fa;
+    margin-bottom: 20px;
+}
+
+.plan-card-featured {
+    background: var(--primary-color);
+    color: white;
+    transform: scale(1.05);
+    z-index: 2;
+    border: none;
+    box-shadow: 0 20px 40px rgba(11, 44, 77, 0.3);
+}
+
+.plan-card-featured .plan-header {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.plan-card-featured .display-6 {
+    color: var(--secondary-color) !important;
+}
+
+.plan-card-featured .btn-primary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.plan-card-featured .btn-primary:hover {
+    background-color: #fff;
+    border-color: #fff;
+    transform: scale(1.05);
+}
+
+.plan-card .feature-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.03);
+}
+
+.plan-card-featured .feature-list li {
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    color: rgba(255,255,255,0.8);
+}
+
+/* Sections */
+.section-padding {
+    padding: 30px 0;
+}
+
+.section-title {
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.section-title span {
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    display: block;
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 80px 0 30px;
+}
+
+footer a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+
+footer a:hover {
+    color: var(--secondary-color);
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Image Hover Effects */
+.destination-card img {
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.destination-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Icon Boxes */
+.icon-box {
+    transition: var(--transition-smooth);
+}
+
+.premium-card:hover .icon-box {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+    .hero-section {
+        height: auto;
+        padding: 150px 0 100px;
+    }
+    .display-3 {
+        font-size: 2.5rem;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        white-space: nowrap;
+    }
+}
+
+/* Fix horizontal scroll */
+.row {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.container, .container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+/* Dashboard Sidebar Customization */
+.dashboard-sidebar {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.dashboard-nav .nav-link {
+    color: var(--primary-color) !important;
+    font-weight: 500;
+    transition: var(--transition-smooth);
+    padding: 12px 20px !important;
+    margin: 5px 0;
+    white-space: nowrap; /* Prevents text from breaking into multiple lines on mobile */
+    display: flex;
+    align-items: center;
+    border-left: 4px solid transparent;
+}
+
+.dashboard-nav .nav-link i {
+    width: 25px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.dashboard-nav .nav-link:hover, .dashboard-nav .nav-link.active-sidebar {
+    background-color: #f8f9fa;
+    color: var(--secondary-color) !important;
+    border-left-color: var(--secondary-color);
+    border-radius: 0 10px 10px 0;
+}
+
+/* Mobile Dashboard Adjustments */
+@media (max-width: 991.98px) {
+    .dashboard-sidebar {
+        margin-bottom: 30px;
+    }
+    .premium-card {
+        padding: 20px !important;
+        margin-bottom: 20px;
+    }
+    .dashboard-nav .nav-link {
+        font-size: 0.95rem;
+    }
+}
+
+/* ========================================
+   GLOBAL MOBILE RESPONSIVE FIXES
+   ======================================== */
+@media (max-width: 767.98px) {
+
+    /* Prevent all badges from wrapping */
+    .badge {
+        white-space: nowrap !important;
+        display: inline-block;
+    }
+
+    /* Buttons smaller and centered on mobile */
+    .btn-gold, .btn-outline-gold {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    /* Dashboard header responsive */
+    .dashboard-header h2 {
+        font-size: 1.5rem;
+    }
+
+    /* Section padding tighter */
+    .section-padding {
+        padding: 20px 0;
+    }
+
+    /* Make tables scrollable horizontally */
+    .table-responsive-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Form controls full width on mobile */
+    .form-control {
+        font-size: 0.9rem;
+    }
+
+    /* Fix card icons not to rotate on mobile (can cause layout jump) */
+    .premium-card:hover .icon-box {
+        transform: none;
+    }
+
+    /* Stat cards text size */
+    .premium-card h3 {
+        font-size: 1.4rem;
+    }
+    .premium-card h4 {
+        font-size: 1.2rem;
+    }
+
+    /* Dashboard icon circle smaller on mobile */
+    .icon-box.rounded-circle {
+        width: 50px !important;
+        height: 50px !important;
+    }
+
+    /* KYC info bar vertical on mobile */
+    .dashboard-kyc-bar {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 12px;
+    }
+
+    /* Bank info header vertical on mobile */
+    .bank-info-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* Progress bar text small */
+    .progress-label {
+        font-size: 0.75rem;
+    }
+
+    /* Referral table compact */
+    .referral-table td, .referral-table th {
+        font-size: 0.8rem;
+        padding: 8px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ultra-small screens */
+    h2.fw-bold {
+        font-size: 1.3rem;
+    }
+    .btn-gold, .btn-outline-gold, .btn-sm {
+        font-size: 0.82rem;
+        padding: 8px 16px;
+    }
+    .premium-card {
+        border-radius: 15px !important;
+    }
+    .dashboard-nav .nav-link {
+        font-size: 0.88rem;
+        padding: 10px 15px !important;
+    }
+    .dashboard-nav .nav-link i {
+        font-size: 1rem;
+        width: 22px;
+    }
+}

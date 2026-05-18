@@ -1,0 +1,132 @@
+in this portal. users can create an account (registration)
+
+registration ke time user ka full name, mobile number, father name, date of birth, email address, pincode, reference id.
+
+ye details dalke user apna account create kr sakta hai.
+
+account creating ke time par user se plan select krwana hai. ki wo konsa plan choose krna chahta hai.
+
+abhi 5 plan hai is application me.
+
+har plan ka ek price hai. and fir har plan ke specific benifits hai.
+
+ye ek investmnet plan ki application hai. jisme users ek plan choose krke account banana hai.
+
+example mene 21,000 wala plan choose kiya account banaya.
+
+mera plan 3 year ke liye valid ragega.
+us 21,000 ke investmnet ko admin ya company aage resort and hotels banane ke use krenge ya reinvest krenge. company ka main hotel and resort ki chain banane ka plan hai
+
+to sare logo se amount leke us amount ko aage resort chain me lagake Pan india ki best destination par invest kiya jayega
+and pese se pesa banaya jayega. land purchase honge, hotels banege, resort banenge. fir users ko wha se jo bhi earning hogi uska har plan ke according jo percentage hai wo monthly rental ke rup me unke wallet me add hoga. 
+
+user 3 month ke lockig period ke bad apne rental income ko withdrawal kr sakte hai. 
+to registration ho gya. plan choose kr liya. ab usko bank details ya payment details how krwani hai. users us details par payment krenga (UPI, ya bank transfer se) then account admin panel se activate kiya jayega agar uska payment aa gya hai to. (Payment process ka checking manualy hoga.)
+
+account activate hone ke bad user login kar payega. usko bohar hi accha professional dashboard show hoga. usko uski profile page hoga jaha se wo apni details update kr paye, bank details add krnee ka bhi option hoga. pan card wagera bhi update krne ka option hoga. withdrawal krne ka option hoga. wallet balace show hoga. uske wallet ki trasaction history bhi show hogi puri. agar kisi ko usne refere kiya hai to kis kis ko referee kiya hai unko dekh paye track kr paye. 
+kisiko refere and earn ka page bhi hoga. 
+
+withdrawl bhi kr payega -> withdrawal krte time only jo amount withdraw ke liye allow hoga wo bhi show hoga and utne ka hi wo withdrawl request kr payega. agar pan details and bank details add nhi hai to withdrwal nhi kr payega.
+
+withdrawl krne ke time par 10% payout charge, fee type se charge cut krna hai. (ye only withdrawl krte time hi show krna hai wo bhi bohat chote font me. jayda notice na ho wese.) means agar wallet me 12000 amount hai jo withdrwable hai. then us mese 1200 fee cut krni hai. and then baki ka amount unke bank me aayega esa ek msg show krwana hai. this msg should not be directly visible. agar hum amount dale and click on the withdrwal request then we will show that msg. and then Confirm.
+
+minimum withdrawal amount bhi rakhna hai. 5000 for now.
+
+jo plan ka amount hai wo 3 year ke lock-in rhega. uske bad hi withdraw kr payega. jo referal fee wo earn krega wo wo kabhi bhi withdraw kr sakta hai. referal par kitna percentage milega wo depends krta hai ki usne konsa plan le rakha hai. and age wala jisko user ne refere kiya hai . wo account banake ke bad jab plan purchase krega. and payment ho jayega uska tabhi users ko refere fee milegi.
+
+ye pura portal bohar hi professional - production ready banna hai. like an application. pura portal mobile first look me banega. iske alawa bhi jo kuch information ham portal me show kr sakte hai wo sab show krwani hai.
+
+plan sare dynamic honge. (pricing plans ki admin panel se change kr paye.) new plan add admin panel se nhi hoga. wo krna hai to direct database me table se hoga.
+
+portal ke alawa ek website bhi hogi puri. us website par company se related all pages honge sari information hogi. sare plan ki details hogi. company kya karti hai. kese kam krti hai. users kese earn krenge sab kuch dikhana hai wha. taki koi bhi user agar website dekhna hai. to usko easily sara kuch samajh me aa jaye. easy to easy way me. steps me sab kuch show krwana hai. bohat hi professional website honi chaiye. resorts kaha kaha honge destination. destination ke photos bhi add krenge. 
+
+abhi me plan ke bare me batata hu.
+
+Plan A: 20,999
+
+benifits : 1 night/2 day Free stay per year(2star and 3 star hotels). 180+ hotels ke sath already tie-up hai.
+18% per year rental income. montly account wallet me add hogi
+3 Lakh Accidental insurance policy cover.
+5% Referal income
+Stay Vibes Membership Card (5 year free stay in all stay vibes resorts - this is after the 3 year locking finish)
+
+Plan B: 39,999
+
+benifits : 4 night/5 day Free stay per year(2star and 3 star hotels). 180+ hotels ke sath already tie-up hai.
+18% per year rental income. montly account wallet me add hogi
+3 Lakh Accidental insurance policy cover.
+5% Referal income
+Stay Vibes Membership Card (5 year free stay in all stay vibes resorts - this is after the 3 year locking finish)
+
+
+
+Plan C: 74,999
+
+benifits : 7 night/8 day Free stay per year(2star and 3 star hotels). 
+18% per year rental income. montly account wallet me add hogi
+5 Lakh Accidental insurance policy cover.
+10% Referal income
+Stay Vibes Membership Card (5 year free stay in all stay vibes resorts - this is after the 3 year locking finish)
+
+
+
+Plan D: 6,24,999
+Secured with Phisical Land (Plot Registry)
+benifits : 7 night/8 day Free stay per year(4star and 5 star hotels). 
+15% per year rental income. montly account wallet me add hogi
+5 Lakh Accidental insurance policy cover.
+5% Referal income
+Stay Vibes Membership Card (5 year free stay in all stay vibes resorts - this is after the 3 year locking finish)
+
+
+Plan E: 12,49,999
+Secured with Phisical Land (Plot Registry)
+benifits : 12 night/13 day Free stay per year(4star and 5 star hotels). 
+15% per year rental income. montly account wallet me add hogi
+5 Lakh Accidental insurance policy cover.
+5% Referal income
+Stay Vibes Membership Card (5 year free stay in all stay vibes resorts - this is after the 3 year locking finish)
+
+
+in free stay 2 Adult and 1 Child are there. applicable for all plans.
+
+
+mene sare plan details me bata diye hai. abhi you need to think and decide how we will show the plan. website kese dikhegi. plan kaha dikhenge. sab kuch professional hona chaiye jese baki websites me hota hai.
+color combination bhi professional use krna hai. mobile friendly design chaiye sara kuch. 
+
+note: benifits will be start after 3 month of lock-in period.
+note: 3 year ke lock-in ke bad full principal amount user can withdrawl + other earning (if available in wallet)
+note: phisical land or plot - company buy back option is there after 3 year if want to keep then ok if they dont want to keep company will buy back in same price. 
+note: jo free stay ke benifits hai uski booking users ko stay ki date ke 15-25 din early batake pre booking krwana hoga. tabhi free stay ka benifits le payenge. 
+
+
+company ka main office udaipur hai. and other offices: mumbai, ahmedabad, indor, gurugram.
+
+hotes ko chain banegi ya jaha jaha hotels ke plan hai destinations: jawai, udaipur, kumbhalgarh, jaishmer, pushkar, goa mahabaleshwar, lonawala, deo daman, girnar, ahmedabad, rishikesh, shimla, ujjain, somnath.
+
+
+
+fir admin panel hoga. jaga se sari cheeje manage hogi. jo jo cheej ko manage krne ki jrurat hai. wo sab.
+like : all plan details. plan ki price change kr paye.(only price.) other kuch benifiets if we want to change i will do it from the db table directly(if this does not compromise our design). 
+
+all customer list- list of users payment done option, and all needed filters. plan konsa hai wallet balance kitna hai.  transaction history of user, active in-active account. bank details. profile view(complete details of user in single place.),
+
+employee module -> add, update delete employees of company. employee filed me work krenge jo bhi employee kitna business leke aate hai. kitne users ke account create krte hai. wo sab details rahe admin panel me to uske liye option hoga. per day har employee ke account me details add kr paye ki is users ne aaj total itne amount ka business lake diya company ko. and itne account aaj registration hue ye employee se. taki kabhi bhi badme wo data dekhna ho to admin easily check kr paye. and employee ka performance check kr paye.
+
+company ka official name STAY VIBES RESORT PRIVATE LIMITED hai.
+CIN : U55101RJ2026PTC111701 
+
+brand name wesite me sab jagah 
+Stay Vibes Resort
+
+ye rakh sakte hai. 
+
+
+first we will create database. and then the website and then the portal.
+
+all need to be fully production ready. bug free, fully working, very attractive, modern design, 
+
+need to use common files like config, header, footer, nav in portal. in website also need to use common files where its required so it will be easy to maintain the web application. and its data. 
+
+everything you need to think like a pro. all the nesessory poins remember from starting to ending the project. 
+
