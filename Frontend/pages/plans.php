@@ -216,7 +216,7 @@ include('../includes/header.php');
         <div class="row g-4 justify-content-center mt-2">
             <!-- Policy Block 1: Installment 1 Details -->
             <div class="col-lg-3 col-md-6">
-                <div class="premium-card p-4 h-100 border-0 shadow-sm transition-hover" style="border-radius: 20px;">
+                <div class="premium-card p-4 h-100 border-0 transition-hover" style="border-radius: 20px; box-shadow: 0 0 25px rgba(0,0,0,0.06);">
                     <div class="icon-box-sm bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mb-3 mx-auto" style="width: 50px; height: 50px; font-weight: bold; font-size: 1.2rem;">1</div>
                     <h5 class="fw-bold mb-3 text-center">Installment 1 Details</h5>
                     <p class="small text-muted mb-3" style="text-align: justify;"><strong class="text-dark">1st Installment:</strong> To be paid at the time of taking membership.</p>
@@ -226,7 +226,7 @@ include('../includes/header.php');
 
             <!-- Policy Block 2: Installment 2 Details -->
             <div class="col-lg-3 col-md-6">
-                <div class="premium-card p-4 h-100 border-0 shadow-sm transition-hover" style="border-radius: 20px;">
+                <div class="premium-card p-4 h-100 border-0 transition-hover" style="border-radius: 20px; box-shadow: 0 0 25px rgba(0,0,0,0.06);">
                     <div class="icon-box-sm bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mb-3 mx-auto" style="width: 50px; height: 50px; font-weight: bold; font-size: 1.2rem;">2</div>
                     <h5 class="fw-bold mb-3 text-center">Installment 2 Details</h5>
                     <p class="small text-muted mb-3" style="text-align: justify;"><strong class="text-dark">2nd Installment:</strong> To be paid within 40 to 45 days of the start of your membership.</p>
@@ -238,7 +238,7 @@ include('../includes/header.php');
 
             <!-- Policy Block 3: Installment 3 & Profits -->
             <div class="col-lg-3 col-md-6">
-                <div class="premium-card p-4 h-100 border-0 shadow-sm transition-hover" style="border-radius: 20px;">
+                <div class="premium-card p-4 h-100 border-0 transition-hover" style="border-radius: 20px; box-shadow: 0 0 25px rgba(0,0,0,0.06);">
                     <div class="icon-box-sm bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mb-3 mx-auto" style="width: 50px; height: 50px; font-weight: bold; font-size: 1.2rem;">3</div>
                     <h5 class="fw-bold mb-3 text-center">Installment 3 & Profits</h5>
                     <p class="small text-muted mb-3" style="text-align: justify;"><strong class="text-dark">3rd Installment:</strong> The final payment must be made within 70 to 75 days of receiving your Membership Card.</p>
@@ -251,7 +251,7 @@ include('../includes/header.php');
 
             <!-- Policy Block 4: Payment Default Policy -->
             <div class="col-lg-3 col-md-6">
-                <div class="premium-card p-4 h-100 border-0 shadow-sm transition-hover" style="border-radius: 20px; border-top: 5px solid #dc3545 !important;">
+                <div class="premium-card p-4 h-100 border-0 transition-hover" style="border-radius: 20px; border-top: 5px solid #dc3545 !important; box-shadow: 0 0 25px rgba(0,0,0,0.06);">
                     <div class="icon-box-sm bg-danger text-white rounded-circle d-flex align-items-center justify-content-center mb-3 mx-auto" style="width: 50px; height: 50px; font-weight: bold; font-size: 1.2rem;"><i class="fas fa-exclamation-triangle" style="font-size: 1.05rem;"></i></div>
                     <h5 class="fw-bold mb-3 text-danger text-center">Payment Default Policy</h5>
                     <ul class="list-unstyled mb-0">

@@ -79,34 +79,34 @@ include('../includes/header.php');
             <h2>Investment Timeline</h2>
         </div>
         
-        <div class="timeline-container position-relative py-5">
+        <div class="timeline-container position-relative">
             <div class="row g-0 justify-content-center">
-                <div class="col-md-2 text-center px-2 mb-4">
+                <div class="col-6 col-md-2 text-center px-2 mb-4">
                     <div class="timeline-point mb-3 mx-auto" style="width: 20px; height: 20px; background: var(--secondary-color); border-radius: 50%; outline: 5px solid rgba(201, 162, 39, 0.2);"></div>
                     <h6 class="fw-bold">Day 1</h6>
                     <p class="small text-muted">Registration</p>
                 </div>
-                <div class="col-md-2 text-center px-2 mb-4">
+                <div class="col-6 col-md-2 text-center px-2 mb-4">
                     <div class="timeline-point mb-3 mx-auto" style="width: 20px; height: 20px; background: var(--secondary-color); border-radius: 50%; outline: 5px solid rgba(201, 162, 39, 0.2);"></div>
                     <h6 class="fw-bold">Day 1-2</h6>
                     <p class="small text-muted">Payment Verification</p>
                 </div>
-                <div class="col-md-2 text-center px-2 mb-4">
+                <div class="col-6 col-md-2 text-center px-2 mb-4">
                     <div class="timeline-point mb-3 mx-auto" style="width: 20px; height: 20px; background: var(--secondary-color); border-radius: 50%; outline: 5px solid rgba(201, 162, 39, 0.2);"></div>
                     <h6 class="fw-bold">Month 1-3</h6>
                     <p class="small text-muted">System Setup Period</p>
                 </div>
-                <div class="col-md-2 text-center px-2 mb-4">
+                <div class="col-6 col-md-2 text-center px-2 mb-4">
                     <div class="timeline-point mb-3 mx-auto" style="width: 20px; height: 20px; background: var(--primary-color); border-radius: 50%; outline: 5px solid rgba(11, 44, 77, 0.2);"></div>
                     <h6 class="fw-bold">After 3 Months</h6>
                     <p class="small text-muted">Benefits Start</p>
                 </div>
-                <div class="col-md-2 text-center px-2 mb-4">
+                <div class="col-6 col-md-2 text-center px-2 mb-4">
                     <div class="timeline-point mb-3 mx-auto" style="width: 20px; height: 20px; background: var(--primary-color); border-radius: 50%; outline: 5px solid rgba(11, 44, 77, 0.2);"></div>
                     <h6 class="fw-bold">3 Years</h6>
                     <p class="small text-muted">Lock-in Period Ends</p>
                 </div>
-                <div class="col-md-2 text-center px-2 mb-4">
+                <div class="col-6 col-md-2 text-center px-2 mb-4">
                     <div class="timeline-point mb-3 mx-auto" style="width: 20px; height: 20px; background: var(--primary-color); border-radius: 50%; outline: 5px solid rgba(11, 44, 77, 0.2);"></div>
                     <h6 class="fw-bold">Post 3 Years</h6>
                     <p class="small text-muted">Principal Withdrawal Possible</p>
@@ -117,33 +117,35 @@ include('../includes/header.php');
 </section>
 
 <!-- Key Highlights -->
-<section class="section-padding">
+<section class="section-padding pt-0">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-6 mb-5 mb-lg-0">
+            <div class="col-lg-6 mb-5 mb-lg-0 text-center">
                 <span class="text-secondary text-uppercase fw-bold mb-2 d-block">Core Values</span>
                 <h2 class="mb-4">Why Trust Stay Vibes?</h2>
-                <p class="text-muted mb-4">We prioritize security and transparency in every transaction. Our system is designed to provide real-time tracking of your wealth growth.</p>
+                <p class="text-muted mb-4 mx-auto" style="max-width: 500px;">We prioritize security and transparency in every transaction. Our system is designed to provide real-time tracking of your wealth growth.</p>
                 
-                <div class="highlight-item d-flex align-items-center mb-3">
-                    <i class="fas fa-check-circle text-success me-3"></i>
-                    <span>Secure Manual Verification</span>
-                </div>
-                <div class="highlight-item d-flex align-items-center mb-3">
-                    <i class="fas fa-check-circle text-success me-3"></i>
-                    <span>Transparent Wallet System</span>
-                </div>
-                <div class="highlight-item d-flex align-items-center mb-3">
-                    <i class="fas fa-check-circle text-success me-3"></i>
-                    <span>Monthly Income Tracking</span>
-                </div>
-                <div class="highlight-item d-flex align-items-center mb-3">
-                    <i class="fas fa-check-circle text-success me-3"></i>
-                    <span>Referral Earning System</span>
-                </div>
-                <div class="highlight-item d-flex align-items-center mb-3">
-                    <i class="fas fa-check-circle text-success me-3"></i>
-                    <span>Real Estate Backed Expansion Plan</span>
+                <div class="d-inline-block text-start">
+                    <div class="highlight-item d-flex align-items-center mb-3">
+                        <i class="fas fa-check-circle text-success me-3"></i>
+                        <span>Secure Manual Verification</span>
+                    </div>
+                    <div class="highlight-item d-flex align-items-center mb-3">
+                        <i class="fas fa-check-circle text-success me-3"></i>
+                        <span>Transparent Wallet System</span>
+                    </div>
+                    <div class="highlight-item d-flex align-items-center mb-3">
+                        <i class="fas fa-check-circle text-success me-3"></i>
+                        <span>Monthly Income Tracking</span>
+                    </div>
+                    <div class="highlight-item d-flex align-items-center mb-3">
+                        <i class="fas fa-check-circle text-success me-3"></i>
+                        <span>Referral Earning System</span>
+                    </div>
+                    <div class="highlight-item d-flex align-items-center mb-3">
+                        <i class="fas fa-check-circle text-success me-3"></i>
+                        <span>Real Estate Backed Expansion Plan</span>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6">
