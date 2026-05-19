@@ -289,6 +289,7 @@ $plans_dropdown_res = $conn->query($plans_dropdown_query);
         $('#usersTable').DataTable({
             responsive: true,
             pageLength: 10,
+            order: [],
             language: {
                 search: "_INPUT_",
                 searchPlaceholder: "Search users..."

@@ -44,14 +44,15 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
                     $total_paid = $paid_res->fetch_assoc()['tp'] ?? 0;
                     
                     
+                    // Check if a user_plans record already exists for this user & plan
+                    $plan_check = $conn->query("SELECT id FROM user_plans WHERE user_id = $uid AND plan_id = $pid");
+
                     if ($total_paid >= $pprice && $pprice > 0) {
                         // Fully paid. Insert/Update plan info in user_plans
                         $today = date('Y-m-d');
                         $next_payout = date('Y-m-d', strtotime('+1 month'));
                         $end_date = date('Y-m-d', strtotime("+$lockin_years years"));
                         
-                        // Check if a user_plans record already exists for this user & plan
-                        $plan_check = $conn->query("SELECT id FROM user_plans WHERE user_id = $uid AND plan_id = $pid");
                         if ($plan_check && $plan_check->num_rows > 0) {
                             $plan_row = $plan_check->fetch_assoc();
                             $conn->query("UPDATE user_plans SET activation_date = '$today', next_payout_date = '$next_payout', end_date = '$end_date', status = 'active' WHERE id = {$plan_row['id']}");
@@ -104,7 +105,13 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
                             $ref_stmt->close();
                         }
                     } else {
-                        // Installment paid, but not full yet
+                        // Installment paid, but not full yet. Associate plan with user in user_plans so it shows up.
+                        if ($plan_check && $plan_check->num_rows > 0) {
+                            $plan_row = $plan_check->fetch_assoc();
+                            $conn->query("UPDATE user_plans SET status = 'active' WHERE id = {$plan_row['id']}");
+                        } else {
+                            $conn->query("INSERT INTO user_plans (user_id, plan_id, activation_date, next_payout_date, end_date, status) VALUES ($uid, $pid, NULL, NULL, NULL, 'active')");
+                        }
                         $conn->query("UPDATE users SET status = 'active' WHERE id = $uid");
                     }
                 }
@@ -359,7 +366,7 @@ $eligible_users_res = $conn->query($eligible_users_query);
         $('#paymentsTable').DataTable({
             responsive: true,
             pageLength: 10,
-            order: [[0, "desc"]], // Default sort by Submission Date descending
+            order: [],
             language: {
                 search: "_INPUT_",
                 searchPlaceholder: "Search payments..."

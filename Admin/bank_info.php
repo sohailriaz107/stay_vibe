@@ -107,6 +107,7 @@ $result = $conn->query($query);
         $('#bankInfoTable').DataTable({
             responsive: true,
             pageLength: 10,
+            order: [],
             language: {
                 search: "_INPUT_",
                 searchPlaceholder: "Search bank details..."
