@@ -75,17 +75,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
             <label class="form-label small fw-bold text-muted">Email Address</label>
             <div class="input-group">
                 <span class="input-group-text bg-light border-0"><i class="fas fa-envelope text-muted"></i></span>
-                <input type="email" name="email" class="form-control bg-light border-0 py-2" placeholder="admin@stayvibes.com" required>
+                <input type="email" name="email" class="form-control bg-light border-0 py-2.5" placeholder="admin@stayvibes.com" required>
             </div>
         </div>
         <div class="mb-4">
             <label class="form-label small fw-bold text-muted">Password</label>
             <div class="input-group">
                 <span class="input-group-text bg-light border-0"><i class="fas fa-lock text-muted"></i></span>
-                <input type="password" name="password" class="form-control bg-light border-0 py-2" placeholder="Enter password" required>
+                <input type="password" name="password" class="form-control bg-light border-0 py-2.5" placeholder="Enter password" required>
             </div>
         </div>
-        <button type="submit" name="login" class="btn w-100 py-2 fw-bold text-white rounded-pill mb-3" style="background: #0b2c4d;">Login to Dashboard</button>
+        <button type="submit" name="login" class="btn w-100 py-2.5 fw-bold text-white rounded-pill mb-3" style="background: #0b2c4d;">Login to Dashboard</button>
         <div class="text-center small text-muted">
             New admin? <a href="register.php" class="fw-bold text-decoration-none" style="color: #0b2c4d;">Create Account</a>
         </div>

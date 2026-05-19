@@ -119,34 +119,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register'])) {
             <label class="form-label small fw-bold text-muted">Full Name</label>
             <div class="input-group rounded-3 overflow-hidden">
                 <span class="input-group-text"><i class="fas fa-user text-muted"></i></span>
-                <input type="text" name="name" class="form-control py-2" placeholder="Admin Full Name" required>
+                <input type="text" name="name" class="form-control py-2.5" placeholder="Admin Full Name" required>
             </div>
         </div>
         <div class="mb-3">
             <label class="form-label small fw-bold text-muted">Email Address</label>
             <div class="input-group rounded-3 overflow-hidden">
                 <span class="input-group-text"><i class="fas fa-envelope text-muted"></i></span>
-                <input type="email" name="email" class="form-control py-2" placeholder="admin@stayvibes.com" required>
+                <input type="email" name="email" class="form-control py-2.5" placeholder="admin@stayvibes.com" required>
             </div>
         </div>
         <div class="mb-3">
             <label class="form-label small fw-bold text-muted">Phone Number</label>
             <div class="input-group rounded-3 overflow-hidden">
                 <span class="input-group-text"><i class="fas fa-phone text-muted"></i></span>
-                <input type="text" name="phone" class="form-control py-2" placeholder="+91 XXXXX XXXXX">
+                <input type="text" name="phone" class="form-control py-2.5" placeholder="+91 XXXXX XXXXX">
             </div>
         </div>
         <div class="row g-3 mb-4">
-            <div class="col-6">
+            <div class="col-md-6 col-12">
                 <label class="form-label small fw-bold text-muted">Password</label>
-                <input type="password" name="password" class="form-control py-2" placeholder="Min 6 chars" required>
+                <input type="password" name="password" class="form-control py-2.5" placeholder="Min 6 chars" required>
             </div>
-            <div class="col-6">
+            <div class="col-md-6 col-12">
                 <label class="form-label small fw-bold text-muted">Confirm Password</label>
-                <input type="password" name="confirm_password" class="form-control py-2" placeholder="Repeat" required>
+                <input type="password" name="confirm_password" class="form-control py-2.5" placeholder="Repeat" required>
             </div>
         </div>
-        <button type="submit" name="register" class="btn btn-register w-100 py-2 mb-3">
+        <button type="submit" name="register" class="btn btn-register w-100 py-2.5 mb-3">
             <i class="fas fa-user-plus me-2"></i> Create Admin Account
         </button>
         <div class="text-center small text-muted">
