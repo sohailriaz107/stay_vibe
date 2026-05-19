@@ -27,7 +27,7 @@ $result = $conn->query($query);
 ?>
 
 <div id="content">
-    <div class="d-flex justify-content-between align-items-center mb-5">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center align-items-md-center text-center text-md-start gap-3 mb-5 w-100">
         <div>
             <h2 class="fw-bold mb-1">User Bank Information</h2>
             <p class="text-muted">Review user bank details and verify KYC status for withdrawals.</p>
@@ -38,9 +38,10 @@ $result = $conn->query($query);
 
     <div class="premium-table-card">
         <div class="table-responsive">
-            <table class="table">
+            <table id="bankInfoTable" class="table w-100">
                 <thead>
                     <tr>
+                        <th>SR</th>
                         <th>User Identity</th>
                         <th>Bank Name</th>
                         <th>Account No.</th>
@@ -52,8 +53,10 @@ $result = $conn->query($query);
                 </thead>
                 <tbody>
                     <?php if ($result && $result->num_rows > 0): ?>
+                        <?php $sr = 1; ?>
                         <?php while($row = $result->fetch_assoc()): ?>
                             <tr>
+                                <td><?php echo $sr++; ?></td>
                                 <td>
                                     <div class="fw-bold"><?php echo htmlspecialchars($row['full_name']); ?></div>
                                     <div class="small text-muted"><?php echo htmlspecialchars($row['email']); ?></div>
@@ -85,7 +88,7 @@ $result = $conn->query($query);
                         <?php endwhile; ?>
                     <?php else: ?>
                         <tr>
-                            <td colspan="7" class="text-center py-5 text-muted">
+                            <td colspan="8" class="text-center py-5 text-muted">
                                 <i class="fas fa-university fa-3x mb-3 opacity-25"></i>
                                 <p class="mb-0">No bank details submitted yet.</p>
                             </td>
@@ -99,5 +102,17 @@ $result = $conn->query($query);
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#bankInfoTable').DataTable({
+            responsive: true,
+            pageLength: 10,
+            language: {
+                search: "_INPUT_",
+                searchPlaceholder: "Search bank details..."
+            }
+        });
+    });
+</script>
 </body>
 </html>

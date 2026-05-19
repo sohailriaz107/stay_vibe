@@ -40,10 +40,10 @@ $inquiries = $conn->query("SELECT * FROM inquiries ORDER BY created_at DESC");
 
     <div class="premium-card bg-white border-0 shadow-sm" style="border-radius: 20px; overflow: hidden;">
         <div class="table-responsive">
-            <table class="table table-hover mb-0">
+            <table id="inquiriesTable" class="table table-hover mb-0 w-100">
                 <thead style="background: #f8f9fa;">
                     <tr>
-                        <th class="px-3 py-3 text-muted small fw-bold text-center">#</th>
+                        <th class="px-3 py-3 text-muted small fw-bold text-center">SR</th>
                         <th class="px-3 py-3 text-muted small fw-bold">Name</th>
                         <th class="px-3 py-3 text-muted small fw-bold">Email / Phone</th>
                         <th class="px-3 py-3 text-muted small fw-bold text-center">Plan</th>
@@ -55,9 +55,10 @@ $inquiries = $conn->query("SELECT * FROM inquiries ORDER BY created_at DESC");
                 </thead>
                 <tbody>
                     <?php if ($inquiries && $inquiries->num_rows > 0): ?>
+                        <?php $sr = 1; ?>
                         <?php while ($row = $inquiries->fetch_assoc()): ?>
                         <tr class="<?php echo $row['status'] == 'new' ? 'table-warning' : ''; ?>">
-                            <td class="px-3 py-3 fw-bold text-muted small text-center">#<?php echo $row['id']; ?></td>
+                            <td class="px-3 py-3 fw-bold text-muted small text-center"><?php echo $sr++; ?></td>
                             <td class="px-3 py-3 fw-bold" style="white-space: nowrap;"><?php echo htmlspecialchars($row['full_name']); ?></td>
                             <td class="px-3 py-3 small">
                                 <div><?php echo htmlspecialchars($row['email']); ?></div>
@@ -138,5 +139,18 @@ function copyEmail(email, btn) {
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#inquiriesTable').DataTable({
+            responsive: true,
+            pageLength: 10,
+            order: [[5, "desc"]], // Default sort by Date column descending
+            language: {
+                search: "_INPUT_",
+                searchPlaceholder: "Search inquiries..."
+            }
+        });
+    });
+</script>
 </body>
 </html>

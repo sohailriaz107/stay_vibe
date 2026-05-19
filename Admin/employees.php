@@ -223,7 +223,7 @@ if (isset($_GET['view_history_id'])) {
 
 <div id="content">
     <!-- Header -->
-    <div class="d-flex justify-content-between align-items-center mb-5 flex-wrap gap-3">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center align-items-md-center text-center text-md-start gap-3 mb-5 w-100">
         <div>
             <h2 class="fw-bold mb-1">Employee Management</h2>
             <p class="text-muted mb-0">Track field executives, register sales, daily logs, and evaluate department performance.</p>
@@ -301,9 +301,10 @@ if (isset($_GET['view_history_id'])) {
             <h5 class="fw-bold mb-0"><i class="fas fa-users-cog text-primary me-2"></i> Executive Performance Directory</h5>
         </div>
         <div class="table-responsive">
-            <table class="table table-hover align-middle mb-0">
+            <table id="employeesTable" class="table table-hover align-middle mb-0 w-100">
                 <thead>
                     <tr class="text-muted small">
+                        <th>SR</th>
                         <th>Employee</th>
                         <th>Designation</th>
                         <th>Contact Info</th>
@@ -315,8 +316,10 @@ if (isset($_GET['view_history_id'])) {
                 </thead>
                 <tbody>
                     <?php if ($employees_res && $employees_res->num_rows > 0): ?>
+                        <?php $sr = 1; ?>
                         <?php while ($emp = $employees_res->fetch_assoc()): ?>
                             <tr>
+                                <td><?php echo $sr++; ?></td>
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <img src="https://ui-avatars.com/api/?name=<?php echo urlencode($emp['name']); ?>&background=random" class="rounded-circle me-3" width="40">
@@ -363,7 +366,7 @@ if (isset($_GET['view_history_id'])) {
                         <?php endwhile; ?>
                     <?php else: ?>
                         <tr>
-                            <td colspan="7" class="text-center py-5 text-muted">
+                            <td colspan="8" class="text-center py-5 text-muted">
                                 <i class="fas fa-user-friends fa-3x mb-3 opacity-25"></i>
                                 <p class="mb-0">No employees registered yet.</p>
                                 <small>Add employees using the button at the top right to start tracking performance!</small>
@@ -590,5 +593,18 @@ function openLogModal(id, name) {
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#employeesTable').DataTable({
+            responsive: true,
+            pageLength: 10,
+            order: [[5, "desc"]], // Default sort by Total Business descending (index 5)
+            language: {
+                search: "_INPUT_",
+                searchPlaceholder: "Search employees..."
+            }
+        });
+    });
+</script>
 </body>
 </html>

@@ -94,7 +94,7 @@ $result = $conn->query($query);
 ?>
 
 <div id="content">
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center align-items-md-center text-center text-md-start gap-3 mb-4 w-100">
         <div>
             <h2 class="fw-bold mb-1">Referral Network</h2>
             <p class="text-muted">Track user referrals and commission distributions.</p>
@@ -122,9 +122,10 @@ $result = $conn->query($query);
     <!-- Referrals Table -->
     <div class="premium-table-card">
         <div class="table-responsive">
-            <table class="table">
+            <table id="referralsTable" class="table w-100">
                 <thead>
                     <tr>
+                        <th>SR</th>
                         <th>Date</th>
                         <th>Referrer (Who invited)</th>
                         <th>Referred User (Who joined)</th>
@@ -135,8 +136,10 @@ $result = $conn->query($query);
                 </thead>
                 <tbody>
                     <?php if($result->num_rows > 0): ?>
+                        <?php $sr = 1; ?>
                         <?php while($row = $result->fetch_assoc()): ?>
                         <tr>
+                            <td><?php echo $sr++; ?></td>
                             <td class="small text-muted"><?php echo date('d M Y, h:i A', strtotime($row['created_at'])); ?></td>
                             <td>
                                 <div class="fw-bold text-primary"><?php echo htmlspecialchars($row['referrer_name']); ?></div>
@@ -172,7 +175,7 @@ $result = $conn->query($query);
                         <?php endwhile; ?>
                     <?php else: ?>
                         <tr>
-                            <td colspan="5" class="text-center py-5 text-muted">No referral history found yet.</td>
+                            <td colspan="7" class="text-center py-5 text-muted">No referral history found yet.</td>
                         </tr>
                     <?php endif; ?>
                 </tbody>
@@ -183,5 +186,18 @@ $result = $conn->query($query);
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#referralsTable').DataTable({
+            responsive: true,
+            pageLength: 10,
+            order: [[1, "desc"]], // Default sort by Date descending
+            language: {
+                search: "_INPUT_",
+                searchPlaceholder: "Search referrals..."
+            }
+        });
+    });
+</script>
 </body>
 </html>

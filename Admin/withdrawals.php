@@ -61,7 +61,7 @@ $result = $conn->query($query);
 ?>
 
 <div id="content">
-    <div class="d-flex justify-content-between align-items-center mb-5">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center align-items-md-center text-center text-md-start gap-3 mb-5 w-100">
         <div>
             <h2 class="fw-bold mb-1">Withdrawal Management</h2>
             <p class="text-muted">Approve or reject fund withdrawal requests from users.</p>
@@ -95,9 +95,10 @@ $result = $conn->query($query);
     <!-- Withdrawals Table -->
     <div class="premium-table-card">
         <div class="table-responsive">
-            <table class="table">
+            <table id="withdrawalsTable" class="table w-100">
                 <thead>
                     <tr>
+                        <th>SR</th>
                         <th>Date</th>
                         <th>User</th>
                         <th>Requested Amount</th>
@@ -109,8 +110,10 @@ $result = $conn->query($query);
                 </thead>
                 <tbody>
                     <?php if($result->num_rows > 0): ?>
+                        <?php $sr = 1; ?>
                         <?php while($row = $result->fetch_assoc()): ?>
                         <tr>
+                            <td><?php echo $sr++; ?></td>
                             <td class="small text-muted"><?php echo date('d M Y, h:i A', strtotime($row['created_at'])); ?></td>
                             <td>
                                 <div class="fw-bold"><?php echo htmlspecialchars($row['full_name']); ?></div>
@@ -150,7 +153,7 @@ $result = $conn->query($query);
                         <?php endwhile; ?>
                     <?php else: ?>
                         <tr>
-                            <td colspan="7" class="text-center py-5 text-muted">No withdrawal requests found.</td>
+                            <td colspan="8" class="text-center py-5 text-muted">No withdrawal requests found.</td>
                         </tr>
                     <?php endif; ?>
                 </tbody>
@@ -161,5 +164,18 @@ $result = $conn->query($query);
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#withdrawalsTable').DataTable({
+            responsive: true,
+            pageLength: 10,
+            order: [[1, "desc"]], // Default sort by Date descending
+            language: {
+                search: "_INPUT_",
+                searchPlaceholder: "Search withdrawals..."
+            }
+        });
+    });
+</script>
 </body>
 </html>

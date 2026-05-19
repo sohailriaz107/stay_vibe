@@ -90,7 +90,7 @@ $all_plans = $conn->query("SELECT * FROM plans");
 ?>
 
 <div id="content">
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center align-items-md-center text-center text-md-start gap-3 mb-4 w-100">
         <div>
             <h2 class="fw-bold mb-1">Investment Plans</h2>
             <p class="text-muted">Manage investment portfolios and benefits.</p>

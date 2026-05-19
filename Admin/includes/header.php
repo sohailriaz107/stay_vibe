@@ -16,6 +16,86 @@ require_once('auth.php');
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Custom Admin CSS -->
     <link rel="stylesheet" href="assets/css/admin-style.css">
+    
+    <!-- DataTables & Responsive CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css">
+    
+    <!-- jQuery & DataTables JS -->
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
+    
+    <!-- Global DataTables Mobile Centering Style -->
+    <style>
+        @media (max-width: 768px) {
+            .dataTables_wrapper .dataTables_length, 
+            .dataTables_wrapper .dataTables_filter {
+                text-align: center !important;
+                margin-bottom: 15px;
+            }
+            .dataTables_wrapper .dataTables_filter input {
+                width: 100% !important;
+                max-width: 300px !important;
+                margin-left: 0 !important;
+                margin-top: 5px;
+                text-align: center !important;
+                display: inline-block !important;
+            }
+            .dataTables_wrapper .dataTables_paginate {
+                text-align: center !important;
+                margin-top: 15px;
+                display: flex;
+                justify-content: center;
+            }
+            .dataTables_wrapper .dataTables_info {
+                text-align: center !important;
+                margin-bottom: 10px;
+            }
+            .premium-table-card {
+                padding: 1rem !important;
+            }
+            table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control,
+            table.dataTable.dtr-inline.collapsed > tbody > tr > th.dtr-control {
+                padding-left: 30px !important;
+            }
+            /* Center collapsed child details on mobile */
+            table.dataTable > tbody > tr.child ul.dtr-details {
+                width: 100% !important;
+            }
+            table.dataTable > tbody > tr.child ul.dtr-details > li {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+                text-align: center !important;
+                border-bottom: 1px solid #efefef !important;
+                padding: 0.8rem 0 !important;
+            }
+            table.dataTable > tbody > tr.child span.dtr-title {
+                font-weight: 700 !important;
+                margin-bottom: 0.35rem !important;
+                text-align: center !important;
+                display: block !important;
+            }
+            table.dataTable > tbody > tr.child span.dtr-data {
+                text-align: center !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                align-items: center !important;
+                width: 100% !important;
+            }
+            table.dataTable > tbody > tr.child span.dtr-data .d-flex {
+                justify-content: center !important;
+                align-items: center !important;
+                text-align: center !important;
+                width: 100% !important;
+            }
+        }
+    </style>
 </head>
 <body>
 

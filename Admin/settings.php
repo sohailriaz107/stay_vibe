@@ -52,7 +52,7 @@ $admin_data = $conn->query("SELECT * FROM admins WHERE id = $admin_id")->fetch_a
 ?>
 
 <div id="content">
-    <div class="d-flex justify-content-between align-items-center mb-5">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center align-items-md-center text-center text-md-start gap-3 mb-5 w-100">
         <div>
             <h2 class="fw-bold mb-1">Settings</h2>
             <p class="text-muted">Manage your admin profile and company bank information.</p>
