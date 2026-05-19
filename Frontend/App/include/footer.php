@@ -7,7 +7,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
         <i class="fas fa-home"></i>
         <span>Home</span>
     </a>
-    <a href="plans.php" class="mobile-nav-link <?php echo ($current_page == 'referrals.php') ? 'active' : ''; ?>">
+    <a href="plans.php" class="mobile-nav-link <?php echo ($current_page == 'plans.php') ? 'active' : ''; ?>">
            <i class="fas fa-gem"></i>
         <span>All Plans</span>
     </a>
