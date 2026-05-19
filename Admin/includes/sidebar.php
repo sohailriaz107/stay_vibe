@@ -1,7 +1,7 @@
 <div id="sidebar">
     <div class="sidebar-header">
         <h4 class="text-white fw-bold mb-0">STAY <span style="color: var(--admin-secondary);">VIBES</span></h4>
-        <p class="text-white-50 x-small-text mb-0 mt-1" style="font-size: 0.7rem; letter-spacing: 2px;">ADMIN CONTROL</p>
+        <p class="text-white x-small-text mb-0 mt-1" style="font-size: 0.7rem; letter-spacing: 2px;">ADMIN CONTROL</p>
     </div>
     
     <div class="nav flex-column mt-4">

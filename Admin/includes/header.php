@@ -15,7 +15,7 @@ require_once('auth.php');
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Custom Admin CSS -->
-    <link rel="stylesheet" href="assets/css/admin-style.css">
+    <link rel="stylesheet" href="assets/css/admin-style.css?v=1.2">
     
     <!-- DataTables & Responsive CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
@@ -31,7 +31,11 @@ require_once('auth.php');
     <!-- Global DataTables Mobile Centering Style -->
     <style>
         @media (max-width: 768px) {
-            .dataTables_wrapper .dataTables_length, 
+            .dataTables_wrapper .dataTables_length {
+                text-align: center !important;
+                margin-top: 15px !important;
+                margin-bottom: 15px;
+            }
             .dataTables_wrapper .dataTables_filter {
                 text-align: center !important;
                 margin-bottom: 15px;
@@ -47,6 +51,7 @@ require_once('auth.php');
             .dataTables_wrapper .dataTables_paginate {
                 text-align: center !important;
                 margin-top: 15px;
+                margin-bottom: 15px !important;
                 display: flex;
                 justify-content: center;
             }
@@ -103,11 +108,16 @@ require_once('auth.php');
 <div id="sidebarOverlay"></div>
 
 <!-- Mobile Top Bar -->
-<div class="d-lg-none bg-white p-3 shadow-sm d-flex justify-content-between align-items-center sticky-top">
-    <h5 class="fw-bold mb-0">STAY <span style="color: var(--admin-secondary);">VIBES</span></h5>
-    <button class="btn btn-primary" id="sidebarToggleMobile">
-        <i class="fas fa-bars"></i>
-    </button>
+<div class="d-lg-none bg-white p-2 px-3 shadow-sm d-flex justify-content-between align-items-center sticky-top" style="z-index: 1030;">
+    <div class="d-flex align-items-center gap-2">
+        <button class="btn btn-primary btn-sm rounded-3" id="sidebarToggleMobile" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-bars fs-5"></i>
+        </button>
+        <h5 class="fw-bold mb-0" style="font-size: 1.1rem; letter-spacing: 0.5px;">STAY <span style="color: var(--admin-secondary);">VIBES</span></h5>
+    </div>
+    <div class="d-flex align-items-center gap-2">
+        <span class="small fw-bold text-dark"><?php echo htmlspecialchars($_SESSION['admin_name'] ?? 'Admin'); ?></span>
+    </div>
 </div>
 
 <!-- Mobile Sidebar Script -->
@@ -121,6 +131,14 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleBtn.addEventListener('click', function() {
             sidebar.classList.toggle('active');
             if (overlay) overlay.classList.toggle('active');
+            
+            // Toggle icon between hamburger and cross
+            const icon = toggleBtn.querySelector('i');
+            if (sidebar.classList.contains('active')) {
+                icon.className = 'fas fa-times fs-5';
+            } else {
+                icon.className = 'fas fa-bars fs-5';
+            }
         });
     }
 
@@ -128,6 +146,10 @@ document.addEventListener('DOMContentLoaded', function() {
         overlay.addEventListener('click', function() {
             sidebar.classList.remove('active');
             overlay.classList.remove('active');
+            
+            // Revert toggle icon back to hamburger
+            const icon = toggleBtn.querySelector('i');
+            if (icon) icon.className = 'fas fa-bars fs-5';
         });
     }
 });

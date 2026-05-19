@@ -160,6 +160,8 @@ body {
     #sidebar { 
         margin-left: -280px; 
         box-shadow: 10px 0 30px rgba(0,0,0,0.1);
+        top: 56px;
+        height: calc(100vh - 56px);
     }
     #sidebar.active { 
         margin-left: 0; 
@@ -175,10 +177,10 @@ body {
         display: none;
         position: fixed;
         width: 100vw;
-        height: 100vh;
+        height: calc(100vh - 56px);
         background: rgba(0,0,0,0.5);
         z-index: 999;
-        top: 0;
+        top: 56px;
         left: 0;
     }
     #sidebarOverlay.active {
