@@ -1,8 +1,8 @@
 <?php
+require_once('../includes/connect.php');
 // include('includes/auth.php'); // Will create this soon
 include('includes/header.php');
 include('includes/sidebar.php');
-require_once('../includes/connect.php');
 
 // Fetch Stats
 $tot_users = $conn->query("SELECT COUNT(id) as c FROM users")->fetch_assoc()['c'] ?? 0;

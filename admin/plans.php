@@ -1,7 +1,7 @@
 <?php 
+require_once('../includes/connect.php');
 include('includes/header.php'); 
 include('includes/sidebar.php'); 
-require_once('../includes/connect.php');
 
 $msg = '';
 

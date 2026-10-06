@@ -1,7 +1,7 @@
 <?php 
+require_once('../includes/connect.php');
 include('includes/header.php'); 
 include('includes/sidebar.php'); 
-require_once('../includes/connect.php');
 
 // Handle Actions
 if (isset($_GET['action']) && isset($_GET['id'])) {

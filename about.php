@@ -5,7 +5,7 @@ include('includes/header.php');
 <?php include('includes/navbar.php'); ?>
 
 <!-- Internal Hero -->
-<section class="section-padding bg-primary text-white " style="background: linear-gradient(rgba(11, 44, 77, 0.9), rgba(11, 44, 77, 0.9)), url('https://images.unsplash.com/photo-1582719478250-c89cae4dfc5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cver; background-position: center; border-radius: 0 0 50px 50px;">
+<section class="section-padding bg-primary text-white " style="background: linear-gradient(rgba(11, 44, 77, 0.9), rgba(11, 44, 77, 0.9)), url('https://images.unsplash.com/photo-1582719478250-c89cae4dfc5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; border-radius: 0 0 50px 50px;">
     <div class="container pt-5 pb-4 text-center">
         <h6 class="text-uppercase fw-bold mb-3" style="letter-spacing: 4px; color: var(--secondary-color);">Our Legacy</h6>
         <h1 class="display-3 fw-bold " style="color: var(--secondary-color);">Redefining Luxury Hospitality</h1>

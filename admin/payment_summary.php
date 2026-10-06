@@ -62,12 +62,27 @@ $collections_res = $conn->query($query);
 $sum_res = $conn->query("SELECT SUM(amount) as total FROM payment_collected");
 $total_amount = $sum_res->fetch_assoc()['total'] ?? 0;
 
+// Fetch settings for dynamic percentages
+$settings_res = $conn->query("SELECT * FROM site_settings WHERE setting_key LIKE 'summary_%'");
+$pcts = [
+    'summary_real_estate' => 45,
+    'summary_lease_hotels' => 20,
+    'summary_others' => 15,
+    'summary_interest' => 10,
+    'summary_office_exp' => 10
+];
+if ($settings_res) {
+    while ($row = $settings_res->fetch_assoc()) {
+        $pcts[$row['setting_key']] = (float)$row['setting_value'];
+    }
+}
+
 // Calculate the 5 parts
-$real_estate = $total_amount * 0.45;  // 45%
-$lease_hotels = $total_amount * 0.20; // 20%
-$others = $total_amount * 0.15;       // 15%
-$interest = $total_amount * 0.10;     // 10%
-$office_exp = $total_amount * 0.10;   // 10%
+$real_estate = $total_amount * ($pcts['summary_real_estate'] / 100);  // Dynamic %
+$lease_hotels = $total_amount * ($pcts['summary_lease_hotels'] / 100); // Dynamic %
+$others = $total_amount * ($pcts['summary_others'] / 100);       // Dynamic %
+$interest = $total_amount * ($pcts['summary_interest'] / 100);     // Dynamic %
+$office_exp = $total_amount * ($pcts['summary_office_exp'] / 100);   // Dynamic %
 
 ?>
 
@@ -110,7 +125,7 @@ $office_exp = $total_amount * 0.10;   // 10%
                 <div class="card-body p-4">
                     <div class="d-flex justify-content-between align-items-center mb-2">
                         <h6 class="text-muted fw-bold mb-0">Real Estate / Land</h6>
-                        <span class="badge bg-primary rounded-pill">45%</span>
+                        <span class="badge bg-primary rounded-pill"><?php echo $pcts['summary_real_estate']; ?>%</span>
                     </div>
                     <h3 class="fw-bold text-dark mb-0">₹<?php echo number_format($real_estate, 2); ?></h3>
                 </div>
@@ -122,7 +137,7 @@ $office_exp = $total_amount * 0.10;   // 10%
                 <div class="card-body p-4">
                     <div class="d-flex justify-content-between align-items-center mb-2">
                         <h6 class="text-muted fw-bold mb-0">Lease Hotels</h6>
-                        <span class="badge bg-success rounded-pill">20%</span>
+                        <span class="badge bg-success rounded-pill"><?php echo $pcts['summary_lease_hotels']; ?>%</span>
                     </div>
                     <h3 class="fw-bold text-dark mb-0">₹<?php echo number_format($lease_hotels, 2); ?></h3>
                 </div>
@@ -134,7 +149,7 @@ $office_exp = $total_amount * 0.10;   // 10%
                 <div class="card-body p-4">
                     <div class="d-flex justify-content-between align-items-center mb-2">
                         <h6 class="text-muted fw-bold mb-0">Others</h6>
-                        <span class="badge bg-warning text-dark rounded-pill">15%</span>
+                        <span class="badge bg-warning text-dark rounded-pill"><?php echo $pcts['summary_others']; ?>%</span>
                     </div>
                     <h3 class="fw-bold text-dark mb-0">₹<?php echo number_format($others, 2); ?></h3>
                 </div>
@@ -146,7 +161,7 @@ $office_exp = $total_amount * 0.10;   // 10%
                 <div class="card-body p-4">
                     <div class="d-flex justify-content-between align-items-center mb-2">
                         <h6 class="text-muted fw-bold mb-0">Interest Payment</h6>
-                        <span class="badge bg-danger rounded-pill">10%</span>
+                        <span class="badge bg-danger rounded-pill"><?php echo $pcts['summary_interest']; ?>%</span>
                     </div>
                     <h3 class="fw-bold text-dark mb-0">₹<?php echo number_format($interest, 2); ?></h3>
                 </div>
@@ -158,7 +173,7 @@ $office_exp = $total_amount * 0.10;   // 10%
                 <div class="card-body p-4">
                     <div class="d-flex justify-content-between align-items-center mb-2">
                         <h6 class="text-muted fw-bold mb-0">Office Expense</h6>
-                        <span class="badge bg-info text-white rounded-pill">10%</span>
+                        <span class="badge bg-info text-white rounded-pill"><?php echo $pcts['summary_office_exp']; ?>%</span>
                     </div>
                     <h3 class="fw-bold text-dark mb-0">₹<?php echo number_format($office_exp, 2); ?></h3>
                 </div>

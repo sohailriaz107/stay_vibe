@@ -1,8 +1,8 @@
 <?php 
+require_once('../includes/connect.php');
 // include('includes/auth.php'); // Ensure this exists and is uncommented soon
 include('includes/header.php'); 
 include('includes/sidebar.php'); 
-require_once('../includes/connect.php');
 
 $msg = '';
 
@@ -47,8 +47,59 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_bank'])) {
     }
 }
 
+// Handle Site Settings Update
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_site_settings'])) {
+    $popup_enabled = isset($_POST['popup_enabled']) ? '1' : '0';
+    $conn->query("INSERT INTO site_settings (setting_key, setting_value) VALUES ('popup_enabled', '$popup_enabled') ON DUPLICATE KEY UPDATE setting_value='$popup_enabled'");
+    // Handle Image Upload
+    if (isset($_FILES['popup_image']) && $_FILES['popup_image']['error'] == 0) {
+        $target_dir = "../assets/uploads/";
+        if (!file_exists($target_dir)) {
+            mkdir($target_dir, 0777, true);
+        }
+        $file_name = time() . '_' . basename($_FILES["popup_image"]["name"]);
+        $target_file = $target_dir . $file_name;
+        
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+        $check = getimagesize($_FILES["popup_image"]["tmp_name"]);
+        
+        if($check !== false) {
+            if (move_uploaded_file($_FILES["popup_image"]["tmp_name"], $target_file)) {
+                $image_path = "assets/uploads/" . $file_name;
+                $conn->query("INSERT INTO site_settings (setting_key, setting_value) VALUES ('popup_image', '$image_path') ON DUPLICATE KEY UPDATE setting_value='$image_path'");
+            }
+        }
+    }
+    
+    $msg = '<div class="alert alert-success">Site Settings updated successfully.</div>';
+}
+
+// Handle Summary Settings Update
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_summary_settings'])) {
+    $real_estate = $conn->real_escape_string($_POST['summary_real_estate']);
+    $lease_hotels = $conn->real_escape_string($_POST['summary_lease_hotels']);
+    $others = $conn->real_escape_string($_POST['summary_others']);
+    $interest = $conn->real_escape_string($_POST['summary_interest']);
+    $office_exp = $conn->real_escape_string($_POST['summary_office_exp']);
+    
+    $conn->query("INSERT INTO site_settings (setting_key, setting_value) VALUES ('summary_real_estate', '$real_estate') ON DUPLICATE KEY UPDATE setting_value='$real_estate'");
+    $conn->query("INSERT INTO site_settings (setting_key, setting_value) VALUES ('summary_lease_hotels', '$lease_hotels') ON DUPLICATE KEY UPDATE setting_value='$lease_hotels'");
+    $conn->query("INSERT INTO site_settings (setting_key, setting_value) VALUES ('summary_others', '$others') ON DUPLICATE KEY UPDATE setting_value='$others'");
+    $conn->query("INSERT INTO site_settings (setting_key, setting_value) VALUES ('summary_interest', '$interest') ON DUPLICATE KEY UPDATE setting_value='$interest'");
+    $conn->query("INSERT INTO site_settings (setting_key, setting_value) VALUES ('summary_office_exp', '$office_exp') ON DUPLICATE KEY UPDATE setting_value='$office_exp'");
+    
+    $msg = '<div class="alert alert-success">Summary Percentages updated successfully.</div>';
+}
+
 // Fetch Admin Data
 $admin_data = $conn->query("SELECT * FROM admins WHERE id = $admin_id")->fetch_assoc();
+
+// Fetch Site Settings
+$settings_res = $conn->query("SELECT * FROM site_settings");
+$site_settings = [];
+while ($row = $settings_res->fetch_assoc()) {
+    $site_settings[$row['setting_key']] = $row['setting_value'];
+}
 ?>
 
 <div id="content">
@@ -120,6 +171,62 @@ $admin_data = $conn->query("SELECT * FROM admins WHERE id = $admin_id")->fetch_a
                         </div>
                     </div>
                     <button type="submit" name="update_bank" class="btn btn-success w-100 py-2 rounded-pill">Update Bank Details</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Site Settings -->
+        <div class="col-lg-6 mt-4">
+            <div class="premium-card p-4 bg-white border-0 shadow-sm h-100" style="border-radius: 20px;">
+                <h5 class="fw-bold mb-4"><i class="fas fa-cogs text-info me-2"></i> Site Settings</h5>
+                <form action="" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3 form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="popup_enabled" name="popup_enabled" <?php echo (isset($site_settings['popup_enabled']) && $site_settings['popup_enabled'] == '1') ? 'checked' : ''; ?>>
+                        <label class="form-check-label fw-bold text-muted" for="popup_enabled">Enable Home Page Popup</label>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label small fw-bold text-muted">Popup Image</label>
+                        <?php if(!empty($site_settings['popup_image'])): ?>
+                            <div class="mb-2">
+                                <img src="../<?php echo $site_settings['popup_image']; ?>" alt="Popup Image" class="img-thumbnail" style="max-height: 100px;">
+                            </div>
+                        <?php endif; ?>
+                        <input type="file" name="popup_image" class="form-control bg-light border-0 py-2" accept="image/*">
+                        <small class="text-muted">Leave empty to keep current image.</small>
+                    </div>
+                    <button type="submit" name="update_site_settings" class="btn btn-info text-white w-100 py-2 rounded-pill">Update Site Settings</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Payment Summary Settings -->
+        <div class="col-lg-6 mt-4">
+            <div class="premium-card p-4 bg-white border-0 shadow-sm h-100" style="border-radius: 20px;">
+                <h5 class="fw-bold mb-4"><i class="fas fa-chart-pie text-warning me-2"></i> Payment Summary Percentages</h5>
+                <form action="" method="POST">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label small fw-bold text-muted">Real Estate (%)</label>
+                            <input type="number" step="0.01" name="summary_real_estate" class="form-control bg-light border-0 py-2" value="<?php echo htmlspecialchars($site_settings['summary_real_estate'] ?? '45'); ?>" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label small fw-bold text-muted">Lease Hotels (%)</label>
+                            <input type="number" step="0.01" name="summary_lease_hotels" class="form-control bg-light border-0 py-2" value="<?php echo htmlspecialchars($site_settings['summary_lease_hotels'] ?? '20'); ?>" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label small fw-bold text-muted">Others (%)</label>
+                            <input type="number" step="0.01" name="summary_others" class="form-control bg-light border-0 py-2" value="<?php echo htmlspecialchars($site_settings['summary_others'] ?? '15'); ?>" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label small fw-bold text-muted">Interest Payment (%)</label>
+                            <input type="number" step="0.01" name="summary_interest" class="form-control bg-light border-0 py-2" value="<?php echo htmlspecialchars($site_settings['summary_interest'] ?? '10'); ?>" required>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <label class="form-label small fw-bold text-muted">Office Expense (%)</label>
+                            <input type="number" step="0.01" name="summary_office_exp" class="form-control bg-light border-0 py-2" value="<?php echo htmlspecialchars($site_settings['summary_office_exp'] ?? '10'); ?>" required>
+                        </div>
+                    </div>
+                    <button type="submit" name="update_summary_settings" class="btn btn-warning text-white w-100 py-2 rounded-pill">Update Percentages</button>
                 </form>
             </div>
         </div>

@@ -157,7 +157,7 @@ include('includes/navbar.php');
                                 <h2 class="fw-bold mb-0"><?php echo $plan_name; ?></h2>
                             </div>
                             <div class="text-end">
-                                <div class="mall mb-1 text-primary" style="line-height: 1;">Remaining Balance:  ₹<?php echo number_format($remaining_amount); ?></div>
+                                <div class="small mb-1 text-primary" style="line-height: 1;">Remaining Balance:  ₹<?php echo number_format($remaining_amount); ?></div>
                                 <div class="small text-muted mb-1">(Total: ₹<?php echo number_format($plan_amount); ?>)</div>
                             </div>
                         </div>

@@ -195,7 +195,7 @@
                 ['name' => 'Jawai', 'img' => 'assets/imgs/jawai.jpg', 'desc' => 'Experience wild luxury'],
                 ['name' => 'Udaipur', 'img' => 'assets/imgs/Udaipur.jpg', 'desc' => 'City of Lakes & Palaces'],
                 ['name' => 'Kumbhalgarh', 'img' => 'assets/imgs/kumbhalgarh.jpg', 'desc' => 'Majestic fort views'],
-                ['name' => 'Jaishmer', 'img' => 'assets/imgs/Jaishmer.jpg', 'desc' => 'Golden sands & desert camping'],
+                ['name' => 'Jaisalmer', 'img' => 'assets/imgs/Jaishmer.jpg', 'desc' => 'Golden sands & desert camping'],
                 ['name' => 'Pushkar', 'img' => 'assets/imgs/Pushkar.jpg', 'desc' => 'Spiritual tranquility'],
                 ['name' => 'Goa', 'img' => 'assets/imgs/Goa.png', 'desc' => 'Beachside Luxury Paradises']
             ];
@@ -353,5 +353,55 @@
         margin-top: 0 !important;
     }
 </style>
+
+<?php
+// Fetch Popup Settings
+require_once('includes/connect.php');
+$popup_enabled = false;
+$popup_image = "";
+$settings_res = $conn->query("SELECT * FROM site_settings WHERE setting_key IN ('popup_enabled', 'popup_image')");
+if ($settings_res) {
+    while ($row = $settings_res->fetch_assoc()) {
+        if ($row['setting_key'] == 'popup_enabled') $popup_enabled = ($row['setting_value'] == '1');
+        if ($row['setting_key'] == 'popup_image') $popup_image = $row['setting_value'];
+    }
+}
+?>
+
+<?php if ($popup_enabled && !isset($_COOKIE['stayvibes_popup_closed'])): ?>
+<div class="modal fade" id="homePopupModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg rounded-4">
+            <div class="modal-header border-0 pb-0">
+                <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body pt-0 p-4 text-center">
+                <?php if(!empty($popup_image)): ?>
+                    <img src="<?php echo htmlspecialchars($popup_image); ?>" alt="Popup Image" class="img-fluid rounded mb-3">
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var popupModalElement = document.getElementById('homePopupModal');
+    if(popupModalElement) {
+        var popupModal = new bootstrap.Modal(popupModalElement);
+        setTimeout(function() {
+            popupModal.show();
+        }, 500); // Show after a slight delay
+
+        // Set cookie on close
+        popupModalElement.addEventListener('hidden.bs.modal', function () {
+            // Set cookie for 24 hours
+            let date = new Date();
+            date.setTime(date.getTime() + (24 * 60 * 60 * 1000));
+            document.cookie = "stayvibes_popup_closed=1; expires=" + date.toUTCString() + "; path=/";
+        });
+    }
+});
+</script>
+<?php endif; ?>
 
 <?php include('includes/footer.php'); ?>
