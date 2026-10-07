@@ -64,14 +64,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_site_settings']
         $check = getimagesize($_FILES["popup_image"]["tmp_name"]);
         
         if($check !== false) {
-            if (move_uploaded_file($_FILES["popup_image"]["tmp_name"], $target_file)) {
-                $image_path = "assets/uploads/" . $file_name;
-                $conn->query("INSERT INTO site_settings (setting_key, setting_value) VALUES ('popup_image', '$image_path') ON DUPLICATE KEY UPDATE setting_value='$image_path'");
+            if (in_array($imageFileType, ['jpg', 'jpeg'])) {
+                if (move_uploaded_file($_FILES["popup_image"]["tmp_name"], $target_file)) {
+                    $image_path = "assets/uploads/" . $file_name;
+                    $conn->query("INSERT INTO site_settings (setting_key, setting_value) VALUES ('popup_image', '$image_path') ON DUPLICATE KEY UPDATE setting_value='$image_path'");
+                }
+            } else {
+                $msg = '<div class="alert alert-danger">Only JPG files are allowed for popup image.</div>';
             }
         }
     }
     
-    $msg = '<div class="alert alert-success">Site Settings updated successfully.</div>';
+    if (empty($msg)) {
+        $msg = '<div class="alert alert-success">Site Settings updated successfully.</div>';
+    }
 }
 
 // Handle Summary Settings Update
@@ -192,7 +198,7 @@ while ($row = $settings_res->fetch_assoc()) {
                             </div>
                         <?php endif; ?>
                         <input type="file" name="popup_image" class="form-control bg-light border-0 py-2" accept="image/*">
-                        <small class="text-muted">Leave empty to keep current image.</small>
+                        <small class="text-muted">Recommended size: 750 × 1000 px JPG Format.</small>
                     </div>
                     <button type="submit" name="update_site_settings" class="btn btn-info text-white w-100 py-2 rounded-pill">Update Site Settings</button>
                 </form>
